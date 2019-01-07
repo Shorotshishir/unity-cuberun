@@ -1291,6 +1291,7 @@ MonoBehaviour:
   sideForce: 1000
   speed: 15
   mapWidth: 2
+  touchPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1829382325
 MonoBehaviour:
   m_ObjectHideFlags: 0
