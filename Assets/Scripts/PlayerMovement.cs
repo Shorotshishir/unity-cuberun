@@ -1,30 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
     public Rigidbody rb;
-    //public float forwarfForce = 1000f;
-    public float sideForce = 500f;
     public float speed = 15f;
-    public float mapWidth = 2f;
-    // Update is called once per frame
-    void Start()
+
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-    void FixedUpdate () {
-        rb = GetComponent<Rigidbody>();
-        float x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-        Vector3 newPosition = rb.position + Vector3.right * x;
+
+    private void FixedUpdate()
+    {
+        var x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
+        var newPosition = rb.position + Vector3.right * x;
         rb.MovePosition(newPosition);
-        if (rb.position.y < -1f)
-        {
-            Debug.Log("player fell out");
-            FindObjectOfType<GameManager>().EndGame();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+
+        if (!(rb.position.y < -1f)) return;
+#if false
+        Debug.Log("player fell out");
+        Debug.Log($"Score : {Score.Instance.ScoreValue}");
+#endif
+        Score.Instance.IsTimerRunning = false;
+        GameManager.Instance.EndGame();
     }
-    
 }

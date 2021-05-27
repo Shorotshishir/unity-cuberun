@@ -1,26 +1,35 @@
-﻿
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
-
-    bool gameHasEnded = false;
-
-    public float restartDelay = 1f;
+public class GameManager : Singleton<GameManager>
+{
     // Use this for initialization
-    public void EndGame()
+    private static GameManager instance;
+
+
+    private void Awake()
     {
-        if (gameHasEnded == false)
-        {
-            gameHasEnded = true;
-            Debug.Log("GAME OVER");
-            Invoke("Restart", restartDelay);
-        }
+        if (instance != null && instance != this)
+            Destroy(gameObject);
+        else
+            instance = this;
+
+        DontDestroyOnLoad(gameObject);
     }
 
-    void Restart()
+    public bool GameHasEnded { get; set; }
+
+    public void EndGame()
+    {
+        if (GameHasEnded) return;
+#if false
+        Debug.Log("GAME OVER");
+#endif
+        Restart();
+    }
+
+    private void Restart()
     {
         SceneManager.LoadScene("Credit");
     }
-
 }

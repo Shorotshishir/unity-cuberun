@@ -1,23 +1,51 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System;
+using UnityEditor.Build.Player;
+using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
-public class Score : MonoBehaviour {
-    public Text ScoreTimer;
+public class Score : Singleton<Score>
+{
+    private Score instance;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+            Destroy(gameObject);
+        else
+            instance = this;
+
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     private float startTime;
-    //public string minutes;
-    //public string seconds;
+    public bool IsTimerRunning { get; set; }
+    public string ScoreValue { get; private set; } = string.Empty;
 
-    // Use this for initialization
-    void Start () {
+    public delegate void ScoreDataDelegate();
+
+    public static event ScoreDataDelegate ScoreData;
+
+    private void Start()
+    {
         startTime = Time.time;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        float f = Time.time - startTime;
-        string minutes = ((int)f / 60).ToString();
-        string seconds = (f % 60).ToString("f3");
-        ScoreTimer.text = "Score: " + minutes + " : " + seconds;
+    }
 
+    private void Update()
+    {
+        if (IsTimerRunning)
+        {
+            var timeRunning = Time.time - startTime;
+            var minutes = ((int) timeRunning / 60).ToString();
+            var seconds = (timeRunning % 60).ToString("f3");
+            ScoreValue = $"{minutes}:{seconds}";
+            ScoreData?.Invoke();
+        }
+    }
+
+    public void ResetTimer()
+    {
+        startTime = Time.time;
+        ScoreValue = string.Empty;
+        IsTimerRunning = true;
     }
 }
