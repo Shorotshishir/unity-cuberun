@@ -1,7 +1,4 @@
-﻿using System;
-using UnityEditor.Build.Player;
-using UnityEngine;
-using UnityEngine.Rendering.Universal;
+﻿using UnityEngine;
 
 public class Score : Singleton<Score>
 {
