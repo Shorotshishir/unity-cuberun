@@ -27,7 +27,7 @@ public class Score : Singleton<Score>
         startTime = Time.time;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (IsTimerRunning)
         {

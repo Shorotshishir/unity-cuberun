@@ -710,11 +710,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: Template3D
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: D:\_Library\Documents\UnityProjects\unity-cuberun\Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: com.emptyPocket.CubeRun
+  metroCertificateIssuer: com.emptyPocket.CubeRun
+  metroCertificateNotAfter: 003f45daff71d801
   metroApplicationDescription: Template_3D
   wsaImages: {}
   metroTileShortName: CubeRun
