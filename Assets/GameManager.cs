@@ -3,27 +3,20 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     // Use this for initialization
-    private static GameManager instance;
-
+    private static GameManager _instance;
 
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (_instance != null && _instance != this)
             Destroy(gameObject);
         else
-            instance = this;
+            _instance = this;
 
         DontDestroyOnLoad(gameObject);
     }
 
-    public bool GameHasEnded { get; set; }
-
     public void EndGame()
     {
-        if (GameHasEnded) return;
-#if false
-        Debug.Log("GAME OVER");
-#endif
         Restart();
     }
 

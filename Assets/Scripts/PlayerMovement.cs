@@ -2,6 +2,9 @@
 
 public class PlayerMovement : MonoBehaviour
 {
+    public delegate void PlayerFellOutDelegate();
+
+    public static event PlayerFellOutDelegate PlayerFellOut;
     public Rigidbody rb;
     public float speed = 15f;
 
@@ -21,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("player fell out");
         Debug.Log($"Score : {Score.Instance.ScoreValue}");
 #endif
-        Score.Instance.IsTimerRunning = false;
+        PlayerFellOut?.Invoke();
         GameManager.Instance.EndGame();
     }
 }

@@ -3,29 +3,22 @@ using UnityEngine.UI;
 
 public class ScoreViewer : MonoBehaviour
 {
-    private Text textData;
-    private Text HighScore;
+    private Text _text;
+    public ScoreManagerSo scoreManagerSo;
 
-    private void OnEnable()
+    private void Start()
     {
-        Score.ScoreData += ShowTimer;
+        _text = GetComponent<Text>();
+        ShowTimer();
     }
 
-    public void ShowTimer()
+    private void FixedUpdate()
     {
-#if false
-        Debug.Log($"Show timer{Score.Instance.ScoreValue}");
-#endif
-        GetComponent<Text>().text = $"{Score.Instance.ScoreValue}";
+        ShowTimer();
     }
 
-    private void OnDisable()
+    private void ShowTimer()
     {
-        Score.ScoreData -= ShowTimer;
-    }
-
-    public void ShowLastScore()
-    {
-        GetComponent<Text>().text = $"Score: {Score.Instance.ScoreValue}";
+        _text.text = $"{scoreManagerSo.score}";
     }
 }

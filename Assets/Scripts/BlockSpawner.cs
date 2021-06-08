@@ -39,7 +39,6 @@ public class BlockSpawner : MonoBehaviour
         {
             if (randomIndex != i)
             {
-                // Debug.Log(spawnpoint.Length+" "+randomIndex + " =>"+i);
                 Instantiate(blockPrefab, spawnpoint[i].position, Quaternion.identity);
             }
 

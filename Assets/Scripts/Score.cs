@@ -1,48 +1,44 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class Score : Singleton<Score>
+public class Score : MonoBehaviour
 {
-    private Score instance;
-
-    private void Awake()
-    {
-        if (instance != null && instance != this)
-            Destroy(gameObject);
-        else
-            instance = this;
-
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    private float startTime;
-    public bool IsTimerRunning { get; set; }
-    public string ScoreValue { get; private set; } = string.Empty;
-
-    public delegate void ScoreDataDelegate();
-
-    public static event ScoreDataDelegate ScoreData;
+    public ScoreManagerSo scoreManagerSo;
+    private bool IsTimerRunning { get; set; }
+    private string _scoreValue = string.Empty;
+    private float _startTime;
 
     private void Start()
     {
-        startTime = Time.time;
+        _startTime = Time.time;
+        IsTimerRunning = true;
+    }
+
+    private void OnEnable()
+    {
+        PlayerCollision.PlayerCollided += StopTimer;
+        PlayerMovement.PlayerFellOut += StopTimer;
+    }
+
+    private void StopTimer()
+    {
+        IsTimerRunning = false;
     }
 
     private void FixedUpdate()
     {
-        if (IsTimerRunning)
-        {
-            var timeRunning = Time.time - startTime;
-            var minutes = ((int) timeRunning / 60).ToString();
-            var seconds = (timeRunning % 60).ToString("f3");
-            ScoreValue = $"{minutes}:{seconds}";
-            ScoreData?.Invoke();
-        }
+        if (!IsTimerRunning) return;
+        var timeRunning = Time.time - _startTime;
+        var minutes = ((int) timeRunning / 60).ToString();
+        var seconds = (timeRunning % 60).ToString("f3");
+        _scoreValue = $"{minutes}:{seconds}";
+        scoreManagerSo.score = _scoreValue;
     }
 
-    public void ResetTimer()
+
+    private void OnDisable()
     {
-        startTime = Time.time;
-        ScoreValue = string.Empty;
-        IsTimerRunning = true;
+        PlayerCollision.PlayerCollided -= StopTimer;
+        PlayerMovement.PlayerFellOut -= StopTimer;
     }
 }

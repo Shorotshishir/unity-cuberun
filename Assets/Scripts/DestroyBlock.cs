@@ -3,7 +3,7 @@
 public class DestroyBlock : MonoBehaviour
 {
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (transform.position.y < -2f)
         {

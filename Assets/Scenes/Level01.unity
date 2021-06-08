@@ -882,6 +882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da5cea6f372c45e1bfcdd2afc65ec16b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManagerSo: {fileID: 11400000, guid: dea085892d8cce24d80bf50a4f8d6088, type: 2}
 --- !u!1 &1584797180
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,7 +959,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2028572323}
   - component: {fileID: 2028572322}
-  - component: {fileID: 2028572324}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -992,18 +992,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2028572324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028572321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea89218142823c24fb12f7ae09e8eb09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5334438684650520070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1015,6 +1003,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334438682989958825, guid: 6ede0471117aef949b24364277996da1,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5334438682989958837, guid: 6ede0471117aef949b24364277996da1,
         type: 3}
@@ -1073,3 +1066,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ede0471117aef949b24364277996da1, type: 3}
+--- !u!1 &5334438684650520071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5334438682989958824, guid: 6ede0471117aef949b24364277996da1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5334438684650520070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5334438684650520072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5334438684650520071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea89218142823c24fb12f7ae09e8eb09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManagerSo: {fileID: 11400000, guid: dea085892d8cce24d80bf50a4f8d6088, type: 2}
