@@ -20,8 +20,9 @@ public class Score : MonoBehaviour
         PlayerMovement.PlayerFellOut += StopTimer;
     }
 
-    private void StopTimer()
+    private void StopTimer(object sender)
     {
+        Debug.Log($"triggeredBy {sender}");
         IsTimerRunning = false;
     }
 
@@ -29,12 +30,11 @@ public class Score : MonoBehaviour
     {
         if (!IsTimerRunning) return;
         var timeRunning = Time.time - _startTime;
-        var minutes = ((int) timeRunning / 60).ToString();
+        var minutes = ((int)timeRunning / 60).ToString();
         var seconds = (timeRunning % 60).ToString("f3");
         _scoreValue = $"{minutes}:{seconds}";
         scoreManagerSo.score = _scoreValue;
     }
-
 
     private void OnDisable()
     {
