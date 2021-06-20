@@ -147,7 +147,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.emptyPocket.CubeRun
+    Android: com.com.emptyPocket.CubeRun.CubeRun
     Standalone: com.com.emptyPocket.CubeRun.CubeRun
   buildNumber:
     Standalone: 0
@@ -777,7 +777,7 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 1
   cloudProjectId: 04acdcc9-aca7-404d-a764-8a5e7c3c04c9
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []

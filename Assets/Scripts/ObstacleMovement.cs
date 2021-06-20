@@ -18,8 +18,6 @@ public class ObstacleMovement : MonoBehaviour
         if (transform.position.z < -49.5f)
         {
             ObjectPool.Instance.ReturnToPool(this);
-            //var objectPool = spawner.GetComponent<BlockSpawner>().objectPool;
-            //objectPool.ReturnToPool(this);
         }
     }
 }
