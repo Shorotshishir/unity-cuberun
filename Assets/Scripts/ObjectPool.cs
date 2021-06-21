@@ -21,7 +21,6 @@ public class ObjectPool : MonoBehaviour
 
     public ObstacleMovement Get()
     {
-        Debug.Log($"obstacles.Count {obstacles.Count}");
         if (obstacles.Count == 0)
         {
             AddObstacles(1);

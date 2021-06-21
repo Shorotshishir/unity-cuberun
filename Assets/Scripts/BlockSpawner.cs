@@ -5,8 +5,6 @@ public class BlockSpawner : MonoBehaviour
     public Transform[] spawnpoint;
     public float timeBetweenWave = 3f;
     public bool stop = false;
-    public ObjectPoolScriptable objectPool;
-
     private float timeToSpawn = 2f;
 
     private void FixedUpdate()
@@ -33,14 +31,15 @@ public class BlockSpawner : MonoBehaviour
         {
             if (randomIndex != i)
             {
-                //var block = ObjectPool.Instance.Get();
-                var block = objectPool.Get();
+                var block = ObjectPool.Instance.Get();
+                //var block = objectPool.Get();
                 block.transform.position = spawnpoint[i].position;
                 block.gameObject.SetActive(true);
             }
 
             if (stop == true)
             {
+                i = 0;
                 break;
             }
         }

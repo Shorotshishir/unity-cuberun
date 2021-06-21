@@ -1,10 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ObstacleMovement : MonoBehaviour
 {
     public Rigidbody rb;
     public float forwardForce = 100f;
     private GameObject spawner;
+
+    public delegate void OutOfViewDelegate(ObstacleMovement moveemnt);
+
+    public static event OutOfViewDelegate OutOfView;
 
     private void Start()
     {
@@ -18,6 +23,7 @@ public class ObstacleMovement : MonoBehaviour
         if (transform.position.z < -49.5f)
         {
             ObjectPool.Instance.ReturnToPool(this);
+            //OutOfView?.Invoke(this);
         }
     }
 }

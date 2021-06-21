@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (inputMovement != null)
         {
-            Debug.Log($"Input {movementRange}");
+            //Debug.Log($"Input {movementRange}");
             var x = movementRange * Time.deltaTime * speed;
             var newPosition = rb.position + Vector3.right * x;
             rb.MovePosition(newPosition);
