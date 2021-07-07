@@ -3,13 +3,14 @@ using UnityEngine;
 
 public class ObstacleMovement : MonoBehaviour
 {
+    public ObjectPoolScriptable objectPool;
     public Rigidbody rb;
     public float forwardForce = 100f;
     private GameObject spawner;
 
-    public delegate void OutOfViewDelegate(ObstacleMovement moveemnt);
+    public delegate void BackToPoolDelegate(ObstacleMovement obstacle);
 
-    public static event OutOfViewDelegate OutOfView;
+    public static event BackToPoolDelegate BackToPool;
 
     private void Start()
     {
@@ -22,8 +23,14 @@ public class ObstacleMovement : MonoBehaviour
         rb.AddForce(0, 0, -forwardForce * Time.deltaTime, ForceMode.VelocityChange);
         if (transform.position.z < -49.5f)
         {
-            ObjectPool.Instance.ReturnToPool(this);
-            //OutOfView?.Invoke(this);
+            //ObjectPool.Instance.ReturnToPool(this);
+            BackToPool?.Invoke(this);
+            //objectPool.ReturnToPool(this);
         }
     }
+
+    /*private void OnDestroy()
+    {
+        objectPool.Reset();
+    }*/
 }

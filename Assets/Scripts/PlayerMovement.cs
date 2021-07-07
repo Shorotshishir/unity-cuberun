@@ -7,7 +7,9 @@ public class PlayerMovement : MonoBehaviour
 
     public static event PlayerFellOutDelegate PlayerFellOut;
 
+    public GameManager GameManager;
     public PlayerInput playerInput;
+
     public Rigidbody rb;
     public float speed = 15f;
     private Vector3 inputMovement;
@@ -18,9 +20,29 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    private void OnEnable()
+    {
+        //JoyStickController.UpdatePosition += OnUpdatePosition;
+    }
+
+    private void OnUpdatePosition(Vector2 pos)
+    {
+        var joyStickMove = pos.x;
+        Debug.Log($"joyStickMove {joyStickMove}");
+        if (pos.x != 0)
+        {
+            Movement(joyStickMove);
+        }
+    }
+
     public void OnPlayerMovement(InputAction.CallbackContext value)
     {
-        movementRange = value.ReadValue<float>();
+        Movement(value.ReadValue<float>());
+    }
+
+    public void Movement(float value)
+    {
+        movementRange = value;
     }
 
     private void FixedUpdate()
@@ -34,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (!(rb.position.y < -1f)) return;
         PlayerFellOut?.Invoke(this);
-        GameManager.Instance.EndGame();
+        GameManager.EndGame();
 #if false
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         var newPosition = rb.position + Vector3.right * x;

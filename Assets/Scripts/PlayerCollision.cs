@@ -6,10 +6,12 @@ public class PlayerCollision : MonoBehaviour
 
     public static event PlayerCollidedDelegate PlayerCollided;
 
+    public GameManager gameManager;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.collider.CompareTag("obstacle")) return;
         PlayerCollided?.Invoke(this);
-        GameManager.Instance.EndGame();
+        gameManager.EndGame();
     }
 }

@@ -128,7 +128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 54465571941387324}
   forwardForce: 100
-  sideForce: 0
 --- !u!114 &114542481707156422
 MonoBehaviour:
   m_ObjectHideFlags: 0

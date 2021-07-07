@@ -2,6 +2,7 @@
 
 public class BlockSpawner : MonoBehaviour
 {
+    public ObjectPoolScriptable objectPool;
     public Transform[] spawnpoint;
     public float timeBetweenWave = 3f;
     public bool stop = false;
@@ -31,7 +32,8 @@ public class BlockSpawner : MonoBehaviour
         {
             if (randomIndex != i)
             {
-                var block = ObjectPool.Instance.Get();
+                //var block = ObjectPool.Instance.Get();
+                var block = objectPool.Get();
                 //var block = objectPool.Get();
                 block.transform.position = spawnpoint[i].position;
                 block.gameObject.SetActive(true);
@@ -39,9 +41,14 @@ public class BlockSpawner : MonoBehaviour
 
             if (stop == true)
             {
-                i = 0;
+                i = -1;
                 break;
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        objectPool.Reset();
     }
 }
