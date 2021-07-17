@@ -1353,12 +1353,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5334438682989958825, guid: 6ede0471117aef949b24364277996da1,
         type: 3}
+      propertyPath: m_Drag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334438682989958825, guid: 6ede0471117aef949b24364277996da1,
+        type: 3}
       propertyPath: m_Mass
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5334438682989958825, guid: 6ede0471117aef949b24364277996da1,
         type: 3}
       propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334438682989958825, guid: 6ede0471117aef949b24364277996da1,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334438682989958825, guid: 6ede0471117aef949b24364277996da1,
+        type: 3}
+      propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5334438682989958834, guid: 6ede0471117aef949b24364277996da1,

@@ -14,7 +14,6 @@ public class ObjectPoolScriptable : ScriptableObject
     private void OnEnable()
     {
         hideFlags = HideFlags.DontUnloadUnusedAsset;
-        //Get();
         ObstacleMovement.BackToPool += ReturnToPool;
     }
 

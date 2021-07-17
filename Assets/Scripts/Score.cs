@@ -1,17 +1,16 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Score : MonoBehaviour
 {
     public ScoreManagerSo scoreManagerSo;
-    private bool IsTimerRunning { get; set; }
+    private bool _isTimerRunning;
     private string _scoreValue = string.Empty;
     private float _startTime;
 
     private void Start()
     {
         _startTime = Time.time;
-        IsTimerRunning = true;
+        _isTimerRunning = true;
     }
 
     private void OnEnable()
@@ -23,12 +22,12 @@ public class Score : MonoBehaviour
     private void StopTimer(object sender)
     {
         Debug.Log($"triggeredBy {sender}");
-        IsTimerRunning = false;
+        _isTimerRunning = false;
     }
 
     private void FixedUpdate()
     {
-        if (!IsTimerRunning) return;
+        if (!_isTimerRunning) return;
         var timeRunning = Time.time - _startTime;
         var minutes = ((int)timeRunning / 60).ToString();
         var seconds = (timeRunning % 60).ToString("f3");

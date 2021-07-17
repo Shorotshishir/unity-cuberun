@@ -12,6 +12,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if (!collision.collider.CompareTag("obstacle")) return;
         PlayerCollided?.Invoke(this);
+
         gameManager.EndGame();
     }
 }
