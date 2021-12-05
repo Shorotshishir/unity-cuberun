@@ -11,12 +11,16 @@ public class ScoreManagerSo : ScriptableObject
 
     private void OnEnable()
     {
+#if UNITY_EDITOR
         EditorApplication.playModeStateChanged += TotalReset;
+#endif
         hideFlags = HideFlags.DontUnloadUnusedAsset;
 #if UNITY_WEBGL
         Application.targetFrameRate = -1;
 #endif
     }
+
+#if UNITY_EDITOR
 
     private void TotalReset(PlayModeStateChange state)
     {
@@ -39,6 +43,8 @@ public class ScoreManagerSo : ScriptableObject
                 break;
         }
     }
+
+#endif
 
     public string GetScore()
     {

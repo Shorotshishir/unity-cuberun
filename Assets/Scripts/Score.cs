@@ -21,7 +21,7 @@ public class Score : MonoBehaviour
 
     private void StopTimer(object sender)
     {
-        Debug.Log($"triggeredBy {sender}");
+        //Debug.Log($"triggeredBy {sender}");
         _isTimerRunning = false;
     }
 

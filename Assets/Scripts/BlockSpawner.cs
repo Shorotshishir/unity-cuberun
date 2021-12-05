@@ -32,9 +32,7 @@ public class BlockSpawner : MonoBehaviour
         {
             if (randomIndex != i)
             {
-                //var block = ObjectPool.Instance.Get();
                 var block = objectPool.Get();
-                //var block = objectPool.Get();
                 block.transform.position = spawnpoint[i].position;
                 block.gameObject.SetActive(true);
             }
