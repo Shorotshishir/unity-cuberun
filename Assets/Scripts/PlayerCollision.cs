@@ -2,13 +2,17 @@
 
 public class PlayerCollision : MonoBehaviour
 {
+    public delegate void PlayerCollidedDelegate(object sender);
+
+    public static event PlayerCollidedDelegate PlayerCollided;
+
+    public GameManager gameManager;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.collider.CompareTag("obstacle")) return;
-        Score.Instance.IsTimerRunning = false;
-#if false
-        Debug.Log($"Score {Score.Instance.ScoreValue}");
-#endif
-        GameManager.Instance.EndGame();
+        PlayerCollided?.Invoke(this);
+
+        gameManager.EndGame();
     }
 }

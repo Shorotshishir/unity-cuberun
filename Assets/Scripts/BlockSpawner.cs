@@ -2,17 +2,13 @@
 
 public class BlockSpawner : MonoBehaviour
 {
+    public ObjectPoolScriptable objectPool;
     public Transform[] spawnpoint;
-    public GameObject blockPrefab;
-
-    private float timeToSpawn = 2f;
     public float timeBetweenWave = 3f;
-
     public bool stop = false;
-    // Use this for initialization
+    private float timeToSpawn = 2f;
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         if (stop == false)
         {
@@ -27,34 +23,30 @@ public class BlockSpawner : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else
-        {
-        }
     }
 
-    void SpawnBlocks()
+    private void SpawnBlocks()
     {
         int randomIndex = Random.Range(0, spawnpoint.Length);
         for (int i = 0; i < spawnpoint.Length; ++i)
         {
             if (randomIndex != i)
             {
-                // Debug.Log(spawnpoint.Length+" "+randomIndex + " =>"+i);
-                Instantiate(blockPrefab, spawnpoint[i].position, Quaternion.identity);
+                var block = objectPool.Get();
+                block.transform.position = spawnpoint[i].position;
+                block.gameObject.SetActive(true);
             }
 
             if (stop == true)
             {
+                i = -1;
                 break;
             }
         }
     }
 
-    public void crashed(bool v)
+    private void OnDestroy()
     {
-        if (v == true)
-        {
-            stop = true;
-        }
+        objectPool.Reset();
     }
 }

@@ -1,22 +1,26 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    private void Start()
-    {
-        transform.Find("HighScore").GetComponent<ScoreViewer>().ShowLastScore();
-        Debug.Log($"Score: {Score.Instance.ScoreValue}");
-    }
+    public ScoreManagerSo scoreManagerSo;
 
     public void StartScreen()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Score.Instance.ResetTimer();
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        scoreManagerSo.Reset();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_STANDALONE
+        Application.Quit ();
+#elif UNITY_WEBGL
+        Application.OpenURL("https://shorotshishir.github.io/#work");
+#endif
     }
 }
