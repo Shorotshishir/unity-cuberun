@@ -27,8 +27,8 @@ public class BlockSpawner : MonoBehaviour
 
     private void SpawnBlocks()
     {
-        int randomIndex = Random.Range(0, spawnpoint.Length);
-        for (int i = 0; i < spawnpoint.Length; ++i)
+        var randomIndex = Random.Range(0, spawnpoint.Length);
+        for (var i = 0; i < spawnpoint.Length; ++i)
         {
             if (randomIndex != i)
             {

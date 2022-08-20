@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Ui/common.uss?fileID=7433441132597879392&amp;guid=4ed4587ef6d6a38478a3b1e0e2b10982&amp;type=3#common" />
+    <Style src="project://database/Assets/Ui/credit.uss?fileID=7433441132597879392&amp;guid=778a098dc0c0fec4f93d8857ef3a008b&amp;type=3#credit" />
+    <ui:VisualElement name="VisualElement" class="panel" style="width: 100%; height: 100%;">
+        <ui:GroupBox style="align-items: center; justify-content: center; width: 100%; height: 100%;">
+            <ui:Label text="Thanks For Playing" display-tooltip-when-elided="true" name="lbl_thanks" style="-unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/Fonts/AmaticSC-Regular.ttf?fileID=12800000&amp;guid=ddbd666e2cb22c9489c45cbe0b965e94&amp;type=3#AmaticSC-Regular&apos;); color: rgb(0, 0, 0); font-size: 145px; -unity-text-align: upper-center; translate: 0 0; top: -21%; white-space: nowrap;" />
+            <ui:Label text="Developed By" display-tooltip-when-elided="true" name="lbl_dev_credit" style="-unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/Fonts/AmaticSC-Regular.ttf?fileID=12800000&amp;guid=ddbd666e2cb22c9489c45cbe0b965e94&amp;type=3#AmaticSC-Regular&apos;); color: rgb(0, 0, 0); -unity-text-align: upper-center; translate: 0 0; font-size: 78px; top: -127px;" />
+            <ui:Label text="Siratim Mustaquim" display-tooltip-when-elided="true" name="lbl_dev_name" style="-unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/Fonts/AmaticSC-Regular.ttf?fileID=12800000&amp;guid=ddbd666e2cb22c9489c45cbe0b965e94&amp;type=3#AmaticSC-Regular&apos;); color: rgb(0, 0, 0); -unity-text-align: upper-center; -unity-font-style: normal; font-size: 80px; top: -128px;" />
+            <ui:Button text="← Back to start" display-tooltip-when-elided="true" name="btn_credit_to_menu" class="btn_credit" style="-unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/Fonts/AmaticSC-Regular.ttf?fileID=12800000&amp;guid=ddbd666e2cb22c9489c45cbe0b965e94&amp;type=3#AmaticSC-Regular&apos;); top: 49px; width: 319px; height: 125px; font-size: 49px;" />
+        </ui:GroupBox>
+    </ui:VisualElement>
+</ui:UXML>

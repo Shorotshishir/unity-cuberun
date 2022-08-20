@@ -36,7 +36,7 @@ public class ObjectPoolScriptable : ScriptableObject
         }
     }
 
-    public void ReturnToPool(ObstacleMovement obstacle)
+    private void ReturnToPool(ObstacleMovement obstacle)
     {
         obstacle.gameObject.SetActive(false);
         obstacles.Enqueue(obstacle);

@@ -1,0 +1,28 @@
+
+.btn_menu {
+    border-left-color: rgb(180, 180, 180);
+    border-right-color: rgb(180, 180, 180);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(0, 0, 0);
+    color: rgba(0, 0, 0, 255);
+}
+
+.btn_menu:hover {
+}
+
+.btn_menu:focus {
+    background-color: rgb(152, 251, 152);
+}
+
+.btn_menu:active {
+    background-color: rgb(255, 255, 0);
+}
+
+.btn_menu:inactive {
+    background-color: rgb(152, 251, 152);
+}
+
+
+
+
+

@@ -1,0 +1,3 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Label text="0:00:00.000" display-tooltip-when-elided="true" name="lbl_curr_timer" style="-unity-font: url(&apos;project://database/Assets/Fonts/AmaticSC-Regular.ttf?fileID=12800000&amp;guid=ddbd666e2cb22c9489c45cbe0b965e94&amp;type=3#AmaticSC-Regular&apos;); -unity-font-definition: none; align-items: center; -unity-text-align: upper-center; font-size: 56px;" />
+</ui:UXML>
